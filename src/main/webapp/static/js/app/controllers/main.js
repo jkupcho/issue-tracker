@@ -6,4 +6,10 @@ angular.module('issueApp')
       .success(function(data) {
         $scope.awesomeThings = data;
       });
+    $scope.addIssue = function(issue) {
+    	$http.post('api/issue', issue)
+    		.success(function(data) {
+    		$scope.awesomeThings.push(data);
+    	});
+    };
   });

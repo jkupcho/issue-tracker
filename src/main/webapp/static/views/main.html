@@ -1,5 +1,28 @@
-Should display this view.
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Issue name</th>
+			<th>Date Opened</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="thing in awesomeThings">
+			<td>{{thing.name}}</td>
+			<td>{{thing.opened | date}}</td>
+		</tr>
+	</tbody>
+</table>
 
-<ul>
-	<li ng-repeat="thing in awesomeThings">{{thing.name}}</li>
-</ul>
+<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<label for="name" class="col-sm-2 control-label">Name</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="name" ng-model="issue.name" placeholder="Name">
+		</div>
+		<label for="date" class="col-sm-2 control-label">Opened</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="date" ng-model="issue.opened" placeholder="Name">
+		</div>
+		<button ng-click="addIssue(issue)">Submit</button>
+	</div>	
+</form>
