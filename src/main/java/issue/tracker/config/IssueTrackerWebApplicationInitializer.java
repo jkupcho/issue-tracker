@@ -32,7 +32,6 @@ public class IssueTrackerWebApplicationInitializer implements WebApplicationInit
 
 	private void addDispatcherToServlet(ServletContext container, AnnotationConfigWebApplicationContext dispatcherContext, String servletName, String servletMapping) {
 		ServletRegistration.Dynamic dispatcher = container.addServlet(servletName, new DispatcherServlet(dispatcherContext));
-		dispatcher.setLoadOnStartup(1);
 		dispatcher.addMapping(servletMapping);
 	}
 

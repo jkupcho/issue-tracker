@@ -12,16 +12,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class MapIssueService implements IssueService, InitializingBean {
 
-	private ConcurrentHashMap<Issue, Boolean> issues = new ConcurrentHashMap<Issue, Boolean>();
+	private ConcurrentHashMap<Integer, Issue> issues = new ConcurrentHashMap<Integer, Issue>();
 	
 	@Override
 	public Collection<Issue> getIssues() {
-		return issues.keySet();
+		return issues.values();
 	}
 	
 	@Override
 	public void addIssue(Issue issue) {
-		issues.put(issue, true);
+		issues.put(issue.hashCode(), issue);
+	}
+	
+	public Issue getIssue(Integer id) {
+		return issues.get(id);
 	}
 
 	@Override
@@ -29,7 +33,7 @@ public class MapIssueService implements IssueService, InitializingBean {
 		Issue issue = new Issue();
 		issue.setName("ETL Problem");
 		issue.setOpened(LocalDate.now());
-		issues.put(issue, true);
+		issues.put(issue.hashCode(), issue);
 	}
 
 }

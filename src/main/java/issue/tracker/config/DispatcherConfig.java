@@ -20,6 +20,9 @@ class DispatcherConfig extends WebMvcConfigurerAdapter {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("**/*.html").addResourceLocations("/static/");
 		registry.addResourceHandler("**/*.map").addResourceLocations("/static/");
+		registry.addResourceHandler("**/*.tff").addResourceLocations("/static/");
+		registry.addResourceHandler("**/*.woff").addResourceLocations("/static/");
+		registry.addResourceHandler("**/*.svg").addResourceLocations("/static/");
 		registry.addResourceHandler("**/*.css").addResourceLocations("/static/");
 		registry.addResourceHandler("**/*.js").addResourceLocations("/static/");
 	}

@@ -12,6 +12,10 @@ public class Issue {
 	private String name;
 	private LocalDate opened;
 	
+	public Integer getId() {
+		return this.hashCode();
+	}
+	
 	public String getName() {
 		return name;
 	}
