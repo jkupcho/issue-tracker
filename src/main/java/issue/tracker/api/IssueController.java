@@ -15,23 +15,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@RequestMapping(value="/issue")
 public class IssueController {
 	
 	@Autowired
 	private IssueService issueService;
 
-	@RequestMapping(value="/issue", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Collection<Issue> getIssues() {
 		return issueService.getIssues();
 	}
 	
-	@RequestMapping(value="/issue", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Issue addIssue(@RequestBody Issue issue) {
 		issueService.addIssue(issue);
 		return issue;
 	}
 	
-	@RequestMapping(value="/issue/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Issue getIssues(@PathVariable Integer id) {
 		return issueService.getIssue(id);
 	}
