@@ -11,6 +11,6 @@ angular.module('issueApp', [
       })
       .when('/issues/:id', {
     	  templateUrl: 'views/issues/issue_detail.html',
-    	  controller: 'MainCtrl'
+    	  controller: 'IssueCtrl'
       });
   });

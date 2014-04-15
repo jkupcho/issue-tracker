@@ -24,6 +24,7 @@ public class MapIssueService implements IssueService, InitializingBean {
 		issues.put(issue.hashCode(), issue);
 	}
 	
+	@Override
 	public Issue getIssue(Integer id) {
 		return issues.get(id);
 	}

@@ -7,6 +7,7 @@ import java.util.Collection;
 public interface IssueService {
 	
 	Collection<Issue> getIssues();
+	Issue getIssue(Integer issueId);
 	void addIssue(Issue issue);
 
 }
