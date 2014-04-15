@@ -2,12 +2,12 @@
 
 angular.module('issueApp')
   .controller('MainCtrl', function($scope, $routeParams, IssueService) {
-    IssueService.getAllIssues().then(function(response){
-		$scope.awesomeThings = response.data;
-	});
+	  
+    $scope.awesomeThings = IssueService.getAllIssues();
+    
     $scope.addIssue = function(issue) {
-    	IssueService.addIssue(issue).then(function(response) {
-        	$scope.awesomeThings.push(response.data); 
-        }); 
+    	var retVal = IssueService.addIssue(issue);
+        $scope.awesomeThings.push(retVal);
     };
+    
   });

@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('issueApp', [
-  'ngRoute'
+  'ngRoute',
+  'ngResource'
 ])
   .config(function ($routeProvider) {
     $routeProvider

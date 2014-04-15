@@ -2,7 +2,5 @@
 
 angular.module('issueApp')
   .controller('IssueCtrl', function($scope, $routeParams, IssueService) {
-	  IssueService.getIssue($routeParams.id).then(function(response){
-		  $scope.issue = response.data;
-	  });
+	  $scope.issue = IssueService.getIssue($routeParams.id);
   });
