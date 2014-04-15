@@ -14,4 +14,10 @@ angular.module('issueApp')
 					return data;
 				});
 		};
+		this.getIssue = function(issueId) {
+			return $http.get('api/issue/' + issueId)
+				.success(function(data){
+					return data;
+				});
+		}
 	});

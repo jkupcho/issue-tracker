@@ -1,11 +1,8 @@
 'use strict';
 
 angular.module('issueApp')
-  .controller('IssueCtrl', function($scope, $routeParams, $http) {
-    $scope.issue = $http.get('api/issue/' + $routeParams.id)
-		.success(function(data) {
-			return data;
-		});
-    
-    console.log($scope.issue);
+  .controller('IssueCtrl', function($scope, $routeParams, IssueService) {
+	  IssueService.getIssue($routeParams.id).then(function(response){
+		  $scope.issue = response.data;
+	  });
   });
