@@ -13,6 +13,9 @@ public class JsonLocalDateDeserializer extends JsonDeserializer<LocalDate> {
 
 	@Override
 	public LocalDate deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+		if(jp.getText() == null) {
+			return null;
+		}
 		return LocalDate.parse(jp.getText());
 	}
 

@@ -1,5 +1,8 @@
 package issue.tracker.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import issue.tracker.domain.transport.JsonLocalDateDeserializer;
 import issue.tracker.domain.transport.JsonLocalDateSerializer;
 
@@ -9,11 +12,20 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 public class Issue {
+	
+	private Integer id;
 	private String name;
 	private LocalDate opened;
+	private LocalDate closed;
+	
+	private Set<Comment> comments = new HashSet<Comment>();
+
+	public Issue() {
+		setId(hashCode());
+	}
 	
 	public Integer getId() {
-		return this.hashCode();
+		return id;
 	}
 	
 	public String getName() {
@@ -25,6 +37,15 @@ public class Issue {
 		return opened;
 	}
 	
+	@JsonSerialize(using=JsonLocalDateSerializer.class)
+	public LocalDate getClosed() {
+		return closed;
+	}
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -32,5 +53,10 @@ public class Issue {
 	@JsonDeserialize(using=JsonLocalDateDeserializer.class)
 	public void setOpened(LocalDate opened) {
 		this.opened = opened;
+	}
+	
+	@JsonDeserialize(using=JsonLocalDateDeserializer.class)
+	public void setClosed(LocalDate closed) {
+		this.closed = closed;
 	}
 }

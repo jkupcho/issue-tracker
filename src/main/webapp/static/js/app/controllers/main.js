@@ -10,4 +10,16 @@ angular.module('issueApp')
         $scope.awesomeThings.push(retVal);
     };
     
+    $scope.isClosed = function(issue) {
+    	return issue.closed !== null;
+    };
+    
+    $scope.isOpen = function(issue) {
+    	return issue.closed === null;
+    };
+    
+    $scope.closeIssue = function(issue) {
+    	return IssueService.closeIssue(issue);
+    };
+    
   });

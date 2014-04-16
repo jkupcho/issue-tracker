@@ -9,5 +9,6 @@ public interface IssueService {
 	Collection<Issue> getIssues();
 	Issue getIssue(Integer issueId);
 	void addIssue(Issue issue);
+	Issue save(Issue issue);
 
 }

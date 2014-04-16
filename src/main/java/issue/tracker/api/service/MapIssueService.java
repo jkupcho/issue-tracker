@@ -31,10 +31,24 @@ public class MapIssueService implements IssueService, InitializingBean {
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		Issue issue = new Issue();
-		issue.setName("ETL Problem");
-		issue.setOpened(LocalDate.now());
-		issues.put(issue.hashCode(), issue);
+		Issue openIssue = new Issue();
+		openIssue.setName("ETL Problem");
+		openIssue.setOpened(LocalDate.now());
+		issues.put(openIssue.hashCode(), openIssue);
+		
+
+		Issue closedIssue = new Issue();
+		closedIssue.setName("TNT Problem");
+		closedIssue.setOpened(LocalDate.now());
+		closedIssue.setClosed(LocalDate.now());
+		issues.put(closedIssue.hashCode(), closedIssue);
+	}
+
+	@Override
+	public Issue save(Issue issue) {
+		Issue issueToSave = issues.get(issue.getId());
+		issueToSave.setClosed(LocalDate.now());
+		return issueToSave;
 	}
 
 }

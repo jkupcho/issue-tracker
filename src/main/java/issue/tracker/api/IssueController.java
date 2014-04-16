@@ -32,6 +32,12 @@ public class IssueController {
 		return issue;
 	}
 	
+	@RequestMapping(value="/save", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody Issue save(@RequestBody Issue issue) {
+		Issue savedIssue = issueService.save(issue);
+		return savedIssue;		
+	}
+	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Issue getIssues(@PathVariable Integer id) {
 		return issueService.getIssue(id);

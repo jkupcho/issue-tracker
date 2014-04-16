@@ -1,14 +1,37 @@
+<h2>Open Issues</h2>
 <table class="table table-striped">
 	<thead>
 		<tr>
 			<th>Issue name</th>
 			<th>Date Opened</th>
+			<th>Date Closed</th>
+			<th>Close</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="thing in awesomeThings">
+		<tr ng-repeat="thing in awesomeThings | filter:isOpen">
 			<td><a href="#/issues/{{thing.id}}">{{thing.name}}</a></td>
 			<td>{{thing.opened | date}}</td>
+			<td>{{thing.closed | date}}</td>
+			<td><button type="button" class="btn bnt-default" ng-click="closeIssue(thing)">Close Issue</button></td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Closed Issues</h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Issue name</th>
+			<th>Date Opened</th>
+			<th>Date Closed</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="thing in awesomeThings | filter:isClosed">
+			<td><a href="#/issues/{{thing.id}}">{{thing.name}}</a></td>
+			<td>{{thing.opened | date}}</td>
+			<td>{{thing.closed | date}}</td>
 		</tr>
 	</tbody>
 </table>
