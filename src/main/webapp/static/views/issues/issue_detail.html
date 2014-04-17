@@ -1,1 +1,9 @@
-{{issue.name}} - {{issue.opened | date}}
+<h2>{{issue.name}}</h2>
+
+{{issue.opened | date}}<br/>
+{{issue.closed | date}}<br/>
+
+<it-calendar date="issue.opened"></it-calendar>
+<it-calendar date="issue.closed"></it-calendar>
+
+<button type="button" class="btn bnt-default" ng-click="save(issue)"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>

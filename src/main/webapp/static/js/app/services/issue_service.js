@@ -22,5 +22,9 @@ angular.module('issueApp')
 			issue.$saveIssue();
 			return issue;
 		};
+		this.updateIssue = function(issue) {
+			issue.$saveIssue();
+			return issue;
+		};
 		
 	});

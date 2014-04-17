@@ -2,7 +2,8 @@
 
 angular.module('issueApp', [
   'ngRoute',
-  'ngResource'
+  'ngResource',
+  'ui.bootstrap'
 ])
   .config(function ($routeProvider) {
     $routeProvider

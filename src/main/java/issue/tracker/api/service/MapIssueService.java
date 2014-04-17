@@ -47,7 +47,11 @@ public class MapIssueService implements IssueService, InitializingBean {
 	@Override
 	public Issue save(Issue issue) {
 		Issue issueToSave = issues.get(issue.getId());
-		issueToSave.setClosed(LocalDate.now());
+		if(issue.getClosed() == null) {
+			issueToSave.setClosed(LocalDate.now());
+		} else {
+			issueToSave.setClosed(issue.getClosed());
+		}
 		return issueToSave;
 	}
 

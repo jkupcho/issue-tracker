@@ -1,0 +1,7 @@
+table.centered-header th {
+	text-align: center;
+}
+
+table.centered-header td {
+	margin-left: .25em;
+}
