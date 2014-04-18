@@ -2,8 +2,8 @@
 <hr/>
 <div class="row">
 	<div class="col-md-4">
-		<it-bar-chart data="dataPoints"></it-bar-chart>
-		<input ng-repeat="value in dataPoints" ng-model="value" type="text">
+		<it-bar-chart data="dataPoints.values"></it-bar-chart>
+		<input ng-repeat="value in dataPoints.values track by $index" ng-model="dataPoints.values[$index]" type="text">
 	</div>
 	<div class="col-md-4">
 		<it-bar-chart data="[5, 8, 53, 16, 23, 42]"></it-bar-chart>

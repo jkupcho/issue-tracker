@@ -4,11 +4,15 @@ angular.module('issueApp')
   .controller('MainCtrl', function($scope, $routeParams, IssueService) {
 	  
     $scope.awesomeThings = IssueService.getAllIssues();
+    
+    $scope.textValue = 'testing';
         
-    $scope.dataPoints = [25, 23, 12, 15, 15];
-        
-    $scope.$watch("dataPoints", function() {
-    	console.log("First changed.");
+    $scope.dataPoints = {
+   		values : [25, 23, 12, 15, 15, 23, 12]
+    };
+    
+    $scope.$watch('dataPoints.values', function(data) {
+    	
     }, true);
     
     $scope.addIssue = function(issue) {

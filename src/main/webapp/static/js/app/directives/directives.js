@@ -11,6 +11,13 @@ angular.module('issueApp')
 		};
 	})
 	.directive('itBarChart', function() {
+		
+		var convertArrayToInt = function(data) {
+			for(var i = 0; i < data.length; i++) {
+				data[i] = parseInt(data[i]);
+			}
+		};
+		
 		return {
 			restrict: 'E',
 			templateUrl: 'directives/templates/bar-chart.html',
@@ -21,19 +28,29 @@ angular.module('issueApp')
 			},
 			compile: function(element, attrs) {
 				return {
-					pre: function preLink(scope, element, attrs, controller) { 
+					pre: function preLink(scope, element, attrs, controller) {
 						if(!attrs.width) { attrs.width = 420; }
 						if(!attrs.height) { attrs.height = 20; }
 					},
 					post: function postLink(scope, element, attrs) {
+						
+						var chart = d3.select(element[0])
+							.append("svg")
+								.attr("width", attrs.width)
+								.attr("class", "chart");
+						
 						scope.$watch('data', function(data) {
+							
+							chart.selectAll("*").remove();
+							
+							if(!data) {
+								return;
+							}
+							
+							convertArrayToInt(data);
+							
 							var x = d3.scale.linear()
 								.range([0, attrs.width]);
-					
-							var chart = d3.select(element[0])
-								.append("svg")
-									.attr("width", attrs.width)
-									.attr("class", "chart");
 							
 							x.domain([0, d3.max(data, function(d) { return d; })]);
 							
@@ -45,7 +62,7 @@ angular.module('issueApp')
 									.attr("transform", function(d,i) { return "translate(0," + i * attrs.height + ")"; });
 							
 							bar.append("rect")
-								.attr("width", function(d) { console.log(x(d)); return x(d); })
+								.attr("width", function(d) { return x(d); })
 								.attr("height", attrs.height - 1);
 								
 							bar.append("text")
