@@ -8,7 +8,7 @@ angular.module('issueApp')
     $scope.textValue = 'testing';
         
     $scope.dataPoints = {
-   		values : [25, 23, 12, 15, 15, 23, 12]
+   		values : [25, 23, 12, 15, 15, 23]
     };
     
     $scope.$watch('dataPoints.values', function(data) {
