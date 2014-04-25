@@ -6,6 +6,14 @@ table.centered-header td {
 	margin-left: .25em;
 }
 
+.issue-detail-container {
+	background-color: #fefefe;
+}
+
+.issue-detail-container hr {
+	border-color: #D5D5D5;
+}
+
 .issue-header {
 	background-color: #eee;
 	border-bottom: 1px solid #ccc;
@@ -16,7 +24,6 @@ table.centered-header td {
 
 .detail-well {
 	padding: 15px;
-	background-color: #fafafa;
 }
 
 .detail-well hr {
