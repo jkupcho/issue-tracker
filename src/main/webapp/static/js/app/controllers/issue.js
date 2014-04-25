@@ -17,8 +17,8 @@ angular.module('issueApp')
 		  $scope.calOpened = true;
 	  };
 	  
-	  $scope.markdownText = "**Markdown**\n\r" + 
-	  "* Testing\n\r" +
+	  $scope.markdownText = "**Markdown**" + 
+	  "* Testing\n" +
 	  "* 1";
 	  
 	  $scope.secondTest = "testing";

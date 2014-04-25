@@ -1,5 +1,11 @@
-<div class="markdown-editable">
-	<button type="button" class="edit btn btn-default btn-sm" ng-show="showEditButton" ng-click="edit = !edit"><span class="glyphicon glyphicon-pencil"></span></button>
-	<div ng-show="!edit" class="description-text">{{data}}</div>
-	<textarea ng-show="edit" ng-model="data"></textarea>
+<h4>Description</h4>
+<button type="button" class="edit btn btn-default btn-sm" ng-show="showEditButton" ng-click="edit = !edit"><span class="glyphicon glyphicon-pencil"></span></button>
+<hr />
+<div class="row">
+	<div class="col-sm-12 col-md-12">
+		<div class="markdown-editable">
+			<div ng-show="!edit" class="description-text">{{data}}</div>
+			<textarea ng-show="edit" ng-model="data"></textarea>
+		</div>
+	</div>
 </div>

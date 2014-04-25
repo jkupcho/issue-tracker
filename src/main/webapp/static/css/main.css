@@ -43,10 +43,13 @@ div.markdown-editable textarea {
 	height: 125px;
 }
 
-div.markdown-editable button.edit {
+sp-markdown {
+	position: relative;
+	display: block;
+}
+
+sp-markdown button.edit {
 	position: absolute;
-	top: -30px;
-	left: 0px;
 }
 
 .issue-header h3 {

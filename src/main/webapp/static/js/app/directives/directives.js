@@ -24,6 +24,12 @@ angular.module('issueApp')
 					pre: function preLink(scope, element, attrs, controller) {
 						scope.edit = false;
 						scope.showEditButton = false;
+						
+						var editButton = element.find('button.edit');
+						var descriptionHeader = element.find('h4');
+						
+						editButton.css('top', descriptionHeader.position().top + 5);
+						editButton.css('left', 100);
 					},
 					post: function postLink(scope, element, attrs) {
 						
@@ -46,11 +52,12 @@ angular.module('issueApp')
 						element.on('mouseleave', function(event) {
 							scope.$apply(removeEditButton());
 						});
-
-						scope.$watch('data', function(data){
-							if(!data) { return; }
-							var html = $sanitize(markdownConverter.makeHtml(scope.data));
-							element.find(".description-text").html(html);
+						
+						scope.$watch('edit', function(data) {
+							if(!data) {
+								var html = $sanitize(markdownConverter.makeHtml(scope.data));
+								element.find(".description-text").html(html);
+							}
 						});
 						
 					}
