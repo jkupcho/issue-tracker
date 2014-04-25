@@ -1,9 +1,165 @@
-<h2>{{issue.name}}</h2>
-
-{{issue.opened | date}}<br/>
-{{issue.closed | date}}<br/>
-
-<it-calendar date="issue.opened"></it-calendar>
-<it-calendar date="issue.closed"></it-calendar>
-
-<button type="button" class="btn bnt-default" ng-click="save(issue)"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+<div class="row">
+	<div class="col-md-12 issue-header">
+		<h5>Application Name</h5>
+		<h3>{{issue.name}}</h3>
+	</div>
+	<div class="col-md-7">
+		<div class="detail-well">
+			<h4>Details</h4>
+			<hr />
+			<div class="row">
+				<div class="col-md-6">
+					<h5>Problem</h5>
+					<hr />
+					<ul class="detail-list">
+						<li class="item">
+							<strong>Type: </strong>
+							<span class="value">Defect</span>
+						</li>
+						<li class="item">
+							<strong>Status: </strong>
+							<span class="label label-success">RESOLVED</span>
+						</li>
+						<li class="item">
+							<strong>Priority: </strong>
+							Minor
+						</li>
+						<li class="item">
+							<strong>Resolution: </strong>
+							Fixed
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<h5>Version</h5>
+					<hr />
+					<ul class="detail-list">
+						<li class="item">
+							<strong>Affected Version: </strong>
+							1.0.0
+						</li>
+						<li class="item">
+							<strong>Fix Version: </strong>
+							1.0.1
+						</li>
+						<li class="item">
+							<strong>Affected Version: </strong>
+							1.0.0
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<h5>Application</h5>
+					<hr />
+					<ul class="detail-list">
+						<li class="item">
+							<strong>Environment: </strong>
+							<span class="value">Production</span>
+						</li>
+						<li class="item">
+							<strong>Components: </strong>
+							Acquisition
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="detail-well">
+			<h4>Description</h4>
+			<hr />
+			<div class="row">
+				<div class="col-md-12">
+					<sp-markdown data="markdownText"></sp-markdown>
+				</div>
+			</div>
+		</div>
+		<div class="detail-well">
+			<h4>Attachments</h4>
+			<hr />
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Filename</th>
+								<th>Size</th>
+								<th>Upload Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td colspan="3">Nothing to show!</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="detail-well">
+			<h4>Activity</h4>
+			<hr />
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Filename</th>
+								<th>Size</th>
+								<th>Upload Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td colspan="3">Nothing to show!</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-5">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="detail-well">
+					<h4>People</h4>
+					<hr />
+					<ul class="detail-list">
+						<li class="item">
+							<strong>Assignee: </strong>
+							<span>Joshua Anderson</span>
+						</li>
+						<li class="item">
+							<strong>Opened By: </strong>
+							<span>Neal Short</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="detail-well">
+					<h4>Dates</h4>
+					<hr />
+					<ul class="detail-list">
+						<li class="item">
+							<strong>Created: </strong>
+							<span>{{now | date}}</span>
+						</li>
+						<li class="item">
+							<strong>Updated: </strong>
+							<span>{{now | date}}</span>
+						</li>
+						<li class="item">
+							<strong>Resolved: </strong>
+							<span>{{now | date}}</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

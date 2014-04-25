@@ -41,7 +41,7 @@
 						<li><a href="#">Export</a></li>
 					</ul>
 				</div>
-				<div class="sol-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view="">
+				<div class="col-md-10 col-md-offset-2 main" ng-view="">
 				</div>
 			</div>		
 		</div>
@@ -50,10 +50,12 @@
 	    <script type="text/javascript" src="js/lib/jquery/jquery-2.1.0.min.js"></script>
 	    <script type="text/javascript" src="js/lib/d3/d3.min.js"></script>
 	    
+	    <!-- Markdown -->
+	    <script type="text/javascript" src="js/lib/showdown/showdown.js"></script>
 	    
-	    
-		<!-- Angular Lib -->
+	    <!-- Angular Lib -->
 		<script type="text/javascript" src="js/lib/angular/angular.min.js"></script>
+		<script type="text/javascript" src="js/lib/angular/angular-sanitize.min.js"></script>
 		<script type="text/javascript" src="js/lib/angular/angular-route.min.js"></script>
 		<script type="text/javascript" src="js/lib/angular/angular-resource.min.js"></script>
 		<script type="text/javascript" src="js/lib/bootstrap/bootstrap.min.js"></script>
@@ -61,6 +63,7 @@
 		
 		<!-- Angular Application -->
 		<script type="text/javascript" src="js/app/app.js"></script>
+		<script type="text/javascript" src="js/app/providers/providers.js"></script>
 		<script type="text/javascript" src="js/app/services/issue_service.js"></script>
 		<script type="text/javascript" src="js/app/controllers/main.js"></script>
 		<script type="text/javascript" src="js/app/controllers/issue.js"></script>

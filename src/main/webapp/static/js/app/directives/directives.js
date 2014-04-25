@@ -10,6 +10,54 @@ angular.module('issueApp')
 			}
 		};
 	})
+	.directive('spMarkdown', function($sanitize, markdownConverter) {
+		return {
+			restrict: 'E',
+			templateUrl: 'directives/templates/sp-markdown.html',
+			scope: {
+				data: '=',
+				edit: '@',
+				showEditButton: '@'
+			},
+			compile: function(element, attrs) {
+				return {
+					pre: function preLink(scope, element, attrs, controller) {
+						scope.edit = false;
+						scope.showEditButton = false;
+					},
+					post: function postLink(scope, element, attrs) {
+						
+						function updateEditButton() {
+							scope.showEditButton = true;
+							element.find('button.edit').css('opacity', '1.0');
+						}
+						
+						function removeEditButton() {
+							if(!scope.edit) { scope.showEditButton = false; }
+							else {
+								element.find('button.edit').css('opacity', '0.25');
+							}
+						}
+						
+						element.on('mouseover', function(event) {
+							scope.$apply(updateEditButton());
+						});
+						
+						element.on('mouseleave', function(event) {
+							scope.$apply(removeEditButton());
+						});
+
+						scope.$watch('data', function(data){
+							if(!data) { return; }
+							var html = $sanitize(markdownConverter.makeHtml(scope.data));
+							element.find(".description-text").html(html);
+						});
+						
+					}
+				};
+			}
+		};
+	})
 	.directive('itBarChart', function() {
 		
 		var convertArrayToInt = function(data) {
@@ -29,14 +77,15 @@ angular.module('issueApp')
 			compile: function(element, attrs) {
 				return {
 					pre: function preLink(scope, element, attrs, controller) {
-						if(!attrs.width) { attrs.width = 420; }
-						if(!attrs.height) { attrs.height = 20; }
+						if(!attrs.width) { attrs.width = 40; }
+						if(!attrs.height) { attrs.height = 420; }
 					},
 					post: function postLink(scope, element, attrs) {
 						
 						var chart = d3.select(element[0])
 							.append("svg")
 								.attr("width", attrs.width)
+								.attr("height", attrs.height)
 								.attr("class", "chart");
 						
 						scope.$watch('data', function(data) {
@@ -50,26 +99,28 @@ angular.module('issueApp')
 							convertArrayToInt(data);
 							
 							var x = d3.scale.linear()
-								.range([0, attrs.width]);
+								.range([attrs.height, 0]);
 							
 							x.domain([0, d3.max(data, function(d) { return d; })]);
 							
-							chart.attr("height", attrs.height * data.length);
+							chart.attr("width", attrs.width * data.length);
 							
 							var bar = chart.selectAll("g")
 									.data(data)
 								.enter().append("g")
-									.attr("transform", function(d,i) { return "translate(0," + i * attrs.height + ")"; });
+									.attr("transform", function(d,i) { return "translate(" + i * attrs.width + ", 0)"; });
 							
 							bar.append("rect")
-								.attr("width", function(d) { return x(d); })
-								.attr("height", attrs.height - 1);
+								.attr("y", function(d) { return x(d); })
+								.attr("width", attrs.width - 1 )
+								.attr("height", function(d) { return attrs.height - x(d); });
 								
 							bar.append("text")
-								.attr("x", function(d) { return x(d) - 3; })
-								.attr("y", attrs.height / 2)
-								.attr("dy", ".35em")
+								.attr("x", attrs.width / 2 )
+								.attr("y", function(d) { return x(d) + 3; })
+								.attr("dy", ".75em")
 								.text(function(d) { return d; });
+							
 						}, true);
 					}					
 				};

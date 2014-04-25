@@ -2,6 +2,7 @@
 
 angular.module('issueApp', [
   'ngRoute',
+  'ngSanitize',
   'ngResource',
   'ui.bootstrap'
 ])
