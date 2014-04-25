@@ -1,0 +1,9 @@
+<li class="item">
+	<button ng-show="showEditButton" type="button" class="edit edit-property btn btn-default btn-xs" ng-click="edit = !edit"><span class="glyphicon glyphicon-pencil"></span></button>
+	<strong>{{name}}: </strong>
+	<span ng-show="!edit">{{model.value}}</span>
+	<input ng-show="edit" ng-if="!options" type="text" ng-model="model.value" />
+	<select ng-show="edit" ng-if="options" value="{{model.value}}">
+		<option ng-repeat="option in options">{{option}}</option>
+	</select>
+</li>

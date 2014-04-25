@@ -24,4 +24,6 @@ angular.module('issueApp')
 	  $scope.secondTest = "testing";
 	  
 	  $scope.now = new Date();
+	  
+	  $scope.propertyTry = {name: 'Issue Name', value: 'Some Value'};
   });

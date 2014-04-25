@@ -65,6 +65,42 @@ angular.module('issueApp')
 			}
 		};
 	})
+	.directive('propertyEdit', function() {
+		return {
+			restrict: 'E',
+			templateUrl: 'directives/templates/property-edit.html',
+			scope: {
+				name: '=',
+				model: '=',
+				edit: '@',
+				showEditButton: '@',
+				selectElements: '@'
+			},
+			link: function(scope, element, attrs) {
+				
+				function updateEditButton() {
+					scope.showEditButton = true;
+					element.find('button.edit').css('opacity', '1.0');
+				}
+				
+				function removeEditButton() {
+					if(!scope.edit) { scope.showEditButton = false; }
+					else {
+						element.find('button.edit').css('opacity', '0.25');
+					}
+				}
+
+				element.on('mouseover', function(event) {
+					scope.$apply(updateEditButton());
+				});
+				
+				element.on('mouseleave', function(event) {
+					scope.$apply(removeEditButton());
+				});
+				
+			}
+		};
+	})
 	.directive('itBarChart', function() {
 		
 		var convertArrayToInt = function(data) {

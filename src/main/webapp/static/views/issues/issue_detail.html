@@ -15,7 +15,7 @@
 						<ul class="detail-list">
 							<li class="item">
 								<strong>Type: </strong>
-								<span class="value">Defect</span>
+								Defect
 							</li>
 							<li class="item">
 								<strong>Status: </strong>
@@ -29,23 +29,24 @@
 								<strong>Resolution: </strong>
 								Fixed
 							</li>
+							<property-edit name="propertyTry.name" model="propertyTry" ></property-edit>
 						</ul>
 					</div>
 					<div class="col-sm-6 col-md-6">
-						<h5>Version</h5>
+						<h5>Dates</h5>
 						<hr />
 						<ul class="detail-list">
 							<li class="item">
-								<strong>Affected Version: </strong>
-								1.0.0
+								<strong>Created: </strong>
+								<span>{{now | date}}</span>
 							</li>
 							<li class="item">
-								<strong>Fix Version: </strong>
-								1.0.1
+								<strong>Updated: </strong>
+								<span>{{now | date}}</span>
 							</li>
 							<li class="item">
-								<strong>Affected Version: </strong>
-								1.0.0
+								<strong>Resolved: </strong>
+								<span>{{now | date}}</span>
 							</li>
 						</ul>
 					</div>
@@ -57,11 +58,25 @@
 						<ul class="detail-list">
 							<li class="item">
 								<strong>Environment: </strong>
-								<span class="value">Production</span>
+								Production
 							</li>
 							<li class="item">
 								<strong>Components: </strong>
 								Acquisition
+							</li>
+						</ul>
+					</div>
+					<div class="col-sm-6 col-md-6">
+						<h5>People</h5>
+						<hr />
+						<ul class="detail-list">
+							<li class="item">
+								<strong>Assignee: </strong>
+								<span>Joshua Anderson</span>
+							</li>
+							<li class="item">
+								<strong>Opened By: </strong>
+								<span>Neal Short</span>
 							</li>
 						</ul>
 					</div>
@@ -92,62 +107,24 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="col-sm-5 col-md-5">
 			<div class="detail-well">
 				<h4>Activity</h4>
 				<hr />
 				<div class="row">
 					<div class="col-sm-12 col-md-12">
-						<tabset>
-							<tab heading="All">
-								Give all the content!
-							</tab>
-							<tab heading="Comments">
-							</tab>
-							<tab heading="Activity">
-							</tab>
-						</tabset>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-5">
-			<div class="row">
-				<div class="col-sm-12 col-md-12">
-					<div class="detail-well">
-						<h4>People</h4>
-						<hr />
-						<ul class="detail-list">
-							<li class="item">
-								<strong>Assignee: </strong>
-								<span>Joshua Anderson</span>
-							</li>
-							<li class="item">
-								<strong>Opened By: </strong>
-								<span>Neal Short</span>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12 col-md-12">
-					<div class="detail-well">
-						<h4>Dates</h4>
-						<hr />
-						<ul class="detail-list">
-							<li class="item">
-								<strong>Created: </strong>
-								<span>{{now | date}}</span>
-							</li>
-							<li class="item">
-								<strong>Updated: </strong>
-								<span>{{now | date}}</span>
-							</li>
-							<li class="item">
-								<strong>Resolved: </strong>
-								<span>{{now | date}}</span>
-							</li>
-						</ul>
+						<div class="tabset-container">
+							<tabset>
+								<tab heading="All">
+									Give all the content!
+								</tab>
+								<tab heading="Comments">
+								</tab>
+								<tab heading="Activity">
+								</tab>
+							</tabset>
+						</div>
 					</div>
 				</div>
 			</div>
