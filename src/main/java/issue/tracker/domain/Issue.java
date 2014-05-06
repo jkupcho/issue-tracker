@@ -1,10 +1,10 @@
 package issue.tracker.domain;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import issue.tracker.domain.transport.JsonLocalDateDeserializer;
 import issue.tracker.domain.transport.JsonLocalDateSerializer;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import org.joda.time.LocalDate;
 

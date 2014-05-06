@@ -42,6 +42,11 @@ ul.detail-list li {
 	position: relative;
 }
 
+ul.detail-list li.item .property-edit {
+	position: absolute;
+	top: -2px;
+}
+
 ul.detail-list li strong {
 	display: inline-block;
 	width: 150px;

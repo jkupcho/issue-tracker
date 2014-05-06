@@ -70,11 +70,9 @@ angular.module('issueApp')
 			restrict: 'E',
 			templateUrl: 'directives/templates/property-edit.html',
 			scope: {
-				name: '=',
 				model: '=',
 				edit: '@',
-				showEditButton: '@',
-				selectElements: '@'
+				showEditButton: '@'
 			},
 			link: function(scope, element, attrs) {
 				

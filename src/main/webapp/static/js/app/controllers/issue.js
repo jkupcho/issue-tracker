@@ -25,5 +25,6 @@ angular.module('issueApp')
 	  
 	  $scope.now = new Date();
 	  
+	  $scope.resolution = {name: 'Resolution', options: ['Fixed', 'Open']};
 	  $scope.propertyTry = {name: 'Issue Name', value: 'Some Value'};
   });
